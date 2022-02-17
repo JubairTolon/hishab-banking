@@ -12,3 +12,6 @@ body {
 .input-field {
     background-color: LightGray;
 }
+.error{
+    display: none;
+}

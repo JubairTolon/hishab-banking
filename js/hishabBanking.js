@@ -4,7 +4,15 @@ function getInputValues(inputId) {
     const newValueText = valueInput.value;
     const newValueAmount = parseInt(newValueText);
     valueInput.value = '';
-    return newValueAmount;
+
+    if (newValueAmount > 0 && newValueAmount != '') {
+        return newValueAmount;
+    }
+    else{
+        console.log('ooopppsss');
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'block';
+    }
 }
 
 //handle calculate button
