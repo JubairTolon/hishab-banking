@@ -1,18 +1,11 @@
 //common functions
 function getInputValues(inputId) {
-    const incomeInput = document.getElementById(inputId);
-    const newIncomeText = incomeInput.value;
-    const newIncomeAmount = parseInt(newIncomeText);
-    incomeInput.value = '';
-    return newIncomeAmount;
+    const valueInput = document.getElementById(inputId);
+    const newValueText = valueInput.value;
+    const newValueAmount = parseInt(newValueText);
+    valueInput.value = '';
+    return newValueAmount;
 }
-// function getTextValues(inputId) {
-//     const balanceAmount = document.getElementById('current-balance');
-//     const previousBalanceText = balanceAmount.innerText;
-//     const previousBalanceAmount = parseInt(previousBalanceText);
-//     return previousBalanceAmount, balanceAmount;
-// }
-
 
 //handle calculate button
 document.getElementById('calcutate-button').addEventListener('click', function() {
