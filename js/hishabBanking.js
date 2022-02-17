@@ -1,35 +1,34 @@
-//handle calculate button
-document.getElementById('calcutate-button').addEventListener('click', function() {
-    //get the input value from income amount
-    const incomeInput = document.getElementById('income-input');
+//common functions
+function getInputValues(inputId) {
+    const incomeInput = document.getElementById(inputId);
     const newIncomeText = incomeInput.value;
     const newIncomeAmount = parseInt(newIncomeText);
     incomeInput.value = '';
+    return newIncomeAmount;
+}
+// function getTextValues(inputId) {
+//     const balanceAmount = document.getElementById('current-balance');
+//     const previousBalanceText = balanceAmount.innerText;
+//     const previousBalanceAmount = parseInt(previousBalanceText);
+//     return previousBalanceAmount, balanceAmount;
+// }
 
-    //get the input value from food amount
-    const foodInput = document.getElementById('food-input');
-    const newFoodText = foodInput.value;
-    const newFoodAmount = parseInt(newFoodText);
-    foodInput.value = '';
 
-    //get the input value from rent amount
-    const rentInput = document.getElementById('rent-input');
-    const newRentText = rentInput.value;
-    const newRentAmount = parseInt(newRentText);
-    rentInput.value = '';
-
-    //get the input value from clothes amount
-    const clothInput = document.getElementById('cloth-input');
-    const newClothText = clothInput.value;
-    const newClothAmount = parseInt(newClothText);
-    clothInput.value = '';
+//handle calculate button
+document.getElementById('calcutate-button').addEventListener('click', function() {
+    //get the input values from all input field
+    const newIncomeAmount = getInputValues('income-input');
+    const newFoodAmount = getInputValues('food-input');
+    const newRentAmount = getInputValues('rent-input');
+    const newClothAmount = getInputValues('cloth-input');
 
     ////////update balance amount/////////
     //get the value from balance amount
     const balanceAmount = document.getElementById('current-balance');
     const previousBalanceText = balanceAmount.innerText;
     const previousBalanceAmount = parseInt(previousBalanceText);
-
+    
+    //calculate total income
     const newBalanceAmount = previousBalanceAmount + newIncomeAmount;
     balanceAmount.innerText = newBalanceAmount;
     
@@ -39,6 +38,7 @@ document.getElementById('calcutate-button').addEventListener('click', function()
     const previousExpenseText = expenseAmount.innerText;
     const previousExpenseAmount = parseInt(previousExpenseText);
 
+    //calculate total expense
     const newExpenseAmount = previousExpenseAmount + newFoodAmount + newRentAmount + newClothAmount;
     expenseAmount.innerText = newExpenseAmount;
 
